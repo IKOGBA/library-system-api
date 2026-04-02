@@ -37,7 +37,6 @@ npm install
 
 Create a `.env` file in the root directory:
 ```bash
-env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 ```
@@ -85,5 +84,7 @@ POST /books/:id/borrow
 ```
 
 👨‍💻 Author
+👨‍💻 Author
 
-Your Name
+Daniel Ikogba  
+Backend Developer
