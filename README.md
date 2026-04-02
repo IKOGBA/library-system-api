@@ -1,10 +1,10 @@
-# 📚 School Library Management API
+#  School Library Management API
 
 A RESTful API built with Node.js, Express.js, and MongoDB for managing a school library system.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Manage Authors, Books, Students, and Library Attendants
 - Book borrowing and returning system
@@ -16,7 +16,7 @@ A RESTful API built with Node.js, Express.js, and MongoDB for managing a school 
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - Node.js
 - Express.js
@@ -25,7 +25,7 @@ A RESTful API built with Node.js, Express.js, and MongoDB for managing a school 
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 git clone https://github.com/your-username/library-system.git
@@ -33,7 +33,7 @@ cd library-system
 npm install
 ```
 
-## ⚙️ Environment Variables
+##  Environment Variables
 
 Create a `.env` file in the root directory:
 ```bash
@@ -72,7 +72,7 @@ GET /students/:id
 ## Attendants
 POST /attendants
 GET /attendants
-## 🧪 Example: Borrow Book
+##  Example: Borrow Book
 ```bash
 POST /books/:id/borrow
 
@@ -83,8 +83,39 @@ POST /books/:id/borrow
 }
 ```
 
-👨‍💻 Author
-👨‍💻 Author
+##  Authentication (JWT)
+
+This API uses JSON Web Token (JWT) for protecting certain routes.
+
+### Login
+
+POST /auth/login
+
+Request body:
+{
+  "staffId": "your_staff_id"
+}
+
+Response:
+{
+  "token": "your_jwt_token"
+}
+
+##  Overdue Books
+
+Books are considered overdue when:
+
+- status = "OUT"
+- returnDate is less than the current date
+
+### Endpoint
+
+GET /books/overdue
+
+Response:
+Returns a list of overdue books.
+
+Author
 
 Daniel Ikogba  
 Backend Developer
