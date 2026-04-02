@@ -39,6 +39,7 @@ Create a `.env` file in the root directory:
 ```bash
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=supersecretkey
 ```
 
 Running the Server
@@ -107,6 +108,18 @@ Books are considered overdue when:
 
 - status = "OUT"
 - returnDate is less than the current date
+Example
+**Example Response:**
+```json
+[
+  {
+    "_id": "bookId",
+    "title": "Clean Code",
+    "status": "OUT",
+    "returnDate": "2025-04-01T00:00:00.000Z"
+  }
+]
+```
 
 ### Endpoint
 
@@ -115,7 +128,28 @@ GET /books/overdue
 Response:
 Returns a list of overdue books.
 
-Author
+Borrow Book
+POST /books/:id/borrow
+```json
+Body:
+
+{
+  "studentId": "studentId",
+  "attendantId": "attendantId",
+  "returnDate": "2025-04-10"
+}
+```
+Return Book
+POST /books/:id/return
+
+No body required
+
+Get Overdue Books
+GET /books/overdue
+
+Headers:
+Authorization: Bearer <your_token>
+## Author
 
 Daniel Ikogba  
 Backend Developer
